@@ -19,16 +19,17 @@ services:
       - misp-db
     expose:
       - 80
+    ports:
+      - 8080:80
     volumes:
       - /dev/urandom:/dev/random
       - /data/misp:/var/www/MISP
     environment:
-      - MYSQL_ROOT_PASSWORD=xxxxxxxx
-      - MYSQL_MISP_PASSWORD=xxxxxxxx
+      - MYSQL_ROOT_PASSWORD=Dy23qBhjZD6fJkvU
+      - MYSQL_MISP_PASSWORD=Dy23qBhjZD6fJkvU
       - MYSQL_HOST=misp-db
       - MISP_ADMIN_EMAIL=admin@admin.test
-      - MISP_ADMIN_PASSPHRASE=xxxxxxxxx
-      - MISP_BASEURL=http:\/\/misp\.test
+# initial password is "admin"
       - POSTFIX_RELAY_HOST=relay.fqdn
       - TIMEZONE=Europe/Brussels
 
@@ -42,4 +43,5 @@ services:
     volumes:
       - /data/tmp/mysql:/var/lib/mysql
     environment:
-      - MYSQL_ROOT_PASSWORD=xxxxxxxx
+      - MYSQL_ROOT_PASSWORD=Dy23qBhjZD6fJkvU
+      - MYSQL_ROOT_HOST=%
